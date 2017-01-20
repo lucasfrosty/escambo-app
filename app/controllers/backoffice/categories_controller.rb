@@ -13,7 +13,7 @@ class Backoffice::CategoriesController < BackofficeController
     @category = CategoryService.create(params_category)
 
     unless @category.errors.any?
-      redirect_to backoffice_categories_path, notice: "Categoria cadastrada! (#{@category.description})"
+      redirect_to backoffice_categories_path, notice: "Category created! (#{@category.description})"
     else 
       render :new
     end
@@ -26,7 +26,7 @@ class Backoffice::CategoriesController < BackofficeController
   def update
     @category.update(params_category)
     if @category.save
-      redirect_to backoffice_categories_path, notice: "Categoria atualizada!"
+      redirect_to backoffice_categories_path, notice: "Category updated!"
     else
       render :edit
     end

@@ -16,7 +16,7 @@ class Backoffice::AdminsController < BackofficeController
   def create
     @admin = Admin.new(params_admin)
     if @admin.save
-      redirect_to backoffice_admins_path, notice: "Admin cadastrado!"
+      redirect_to backoffice_admins_path, notice: "Admin created!"
     else 
       render :new
     end
@@ -29,7 +29,7 @@ class Backoffice::AdminsController < BackofficeController
   def update
     if @admin.update(params_admin)
       AdminMailer.update_email(current_admin, @admin).deliver_now
-      redirect_to backoffice_admins_path, notice: "Admin atualizado!"
+      redirect_to backoffice_admins_path, notice: "Admin updated!"
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class Backoffice::AdminsController < BackofficeController
     authorize @admin
     admin_email = @admin.email
     if @admin.destroy
-      redirect_to backoffice_admins_path, notice: "Admin deletado (#{admin_email})!"
+      redirect_to backoffice_admins_path, notice: "Admin deleted (#{admin_email})!"
     else
       render :index
     end

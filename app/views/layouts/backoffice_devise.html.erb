@@ -12,8 +12,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= stylesheet_link_tag    'backoffice', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag 'backoffice' %>
+
 
 
     <%= csrf_meta_tags %>
@@ -28,6 +27,8 @@
 
   </head>
   <body>
-       <%= yield %>
+    <%= yield %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'backoffice' %>
   </body>
 </html>

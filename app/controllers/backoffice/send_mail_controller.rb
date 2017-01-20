@@ -9,9 +9,9 @@ class Backoffice::SendMailController < ApplicationController
 			AdminMailer.send_email(current_admin, 
 													   params[:'recipient-name'], params[:'subject-text'], params[:'message-text'])
 														 .deliver_now
-			notify_mail_msg("E-mail foi enviado com sucesso!", "success")
+			notify_mail_msg("E-mail successfully sended!", "success")
 		rescue
-			notify_mail_msg("Algum erro ocorreu. E-mail não foi enviado!", "error")
+			notify_mail_msg("Error. E-mail wasn't sended.", "error")
 		end
 
 		respond_to_js

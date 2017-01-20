@@ -29,7 +29,7 @@
 				<%= f.password_field :password_confirmation, class:"form-control", placeholder: "•••••••" %><br>
 
 				<% if policy(@admin).edit? %>
-					<label>Tipo de Acesso:</label>
+					<label>Access:</label>
 					<%= f.collection_radio_buttons(:role, options_for_roles, :id, :description, class: "radio") do |b| %>
 						<div class="radio"> <%= b.label {b.radio_button + b.text} %> </div>
 					<% end %>

@@ -1,7 +1,7 @@
 class Ad < ApplicationRecord
 	monetize :price_cents, :allow_nil => false,
   :numericality => {
-    :greater_than_or_equal_to => 0.01,
+    :greater_than => 0
   }
 
   belongs_to :category
@@ -9,7 +9,7 @@ class Ad < ApplicationRecord
 
 
 
-  validates_presence_of :title, :description, :picture, :category
+  validates :title, :description, :picture, :category, :finish_date, presence: true
 
   has_attached_file :picture, 
   									styles: { medium: "320x150#", thumb: "100x100>" },
