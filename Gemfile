@@ -13,12 +13,14 @@ gem 'paperclip', '~> 5.0.0'
 gem 'money-rails'
 # Create fake data
 gem 'faker'
+# Animated CSS
+gem 'rails-assets-animate-css', source: 'https://rails-assets.org'
 # Pry on Console
 gem 'pry-rails', :group => :development
 # Confirm Notification
 gem 'rails-assets-bootbox', source: 'https://rails-assets.org'
-# NotifyJS
-gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
+# Bootstrap Notify
+gem 'rails-assets-remarkable-bootstrap-notify', source: 'https://rails-assets.org'
 #Bootstrap gem v3.3.7
 gem 'rails-assets-bootstrap', '3.3.7', source: 'https://rails-assets.org'
 # SB-Admin2 on Rails

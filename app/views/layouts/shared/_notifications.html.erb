@@ -1,0 +1,37 @@
+<% if notice %>
+	<script>
+		$.notify({ 
+			icon: 'glyphicon glyphicon-ok',
+			message: '<%= notice %>'
+		},
+		{ 
+			type: 'success',
+			placement: {
+				from: "top",
+				align: "center"
+			},
+			allow_dismiss: true
+
+		}
+						);
+	</script>
+<% end %>
+
+<% if alert %>
+  <script>
+		$.notify({ 
+			icon: 'glyphicon glyphicon-exclamation-sign',
+			message: '<%= alert %>'
+		},
+		{ 
+			type: 'danger',
+			placement: {
+				from: "top",
+				align: "center"
+			},
+			allow_dismiss: true
+
+		}
+						);
+	</script>
+<% end %>	
