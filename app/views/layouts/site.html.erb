@@ -27,8 +27,14 @@
 </head>
 
 <body>
+    <div id="global-spin" class="loading" style="display: none;">Loading&#8230;</div>
     <%= render partial: "layouts/site_shared/navigation" %>
+    <div class="container">
+
+    <div class="row">
     <%= yield %>
+    </div>
+    
     <%= render partial: "layouts/site_shared/footer" %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'site' %>
