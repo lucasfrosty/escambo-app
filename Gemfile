@@ -5,14 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# The safe Markdown parser, reloaded.
+gem 'redcarpet'
 # jQuery UI
 gem 'jquery-ui-rails'
 # Easy file attachment management for ActiveRecord
 gem 'paperclip', '~> 5.0.0'
 # Deals with money for us
 gem 'money-rails'
-# Create fake data
-gem 'faker'
 # Animated CSS
 gem 'rails-assets-animate-css', source: 'https://rails-assets.org'
 # Pry on Console
@@ -73,15 +73,16 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-
   # Gem to create Relational Database Graphics of the project
   gem 'rails-erd'
-
   # Better error page for Rack apps
   gem "better_errors"
-
   # Catches mail and serves it through a dream.
   gem 'mailcatcher'
+  # Create fake data
+  gem 'faker'
+  # Fake data with Markdown
+  gem 'doctor_ipsum'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

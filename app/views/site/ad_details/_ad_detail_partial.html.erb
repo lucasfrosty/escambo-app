@@ -6,7 +6,7 @@
         <h4><%= @ad.title %>
         </h4>
         <p>
-            <%= @ad.description %>
+            <%= (@ad.description).html_safe %>
         </p>
     </div>
     <div class="ratings">

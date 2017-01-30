@@ -18,7 +18,7 @@ namespace :dev do
   desc "Cria MEMBROS Fake"
   task generate_members: :environment do
 
-    puts "Criando Membros"
+    puts "Creating members"
 
     10.times do
       Member.create!(
@@ -28,20 +28,21 @@ namespace :dev do
       )
     end
 
-    puts "MEMBROS cadastrados com sucesso!"
+    puts "MEMBERS successfully created!"
   end
 
 
 ##################################################
-  desc "Cria anuncios Fake"
+  desc "Create Fake ADs"
   task generate_ads: :environment do
 
 
-    puts "Criando anuncios"
+    puts "Creating ADs"
     2.times do
       Ad.create!(
         title: Faker::Lorem.sentence([2,3,4,5].sample),
-        description: Faker::Lorem.sentence([2,3].sample),
+        description_short: Faker::Lorem.sentence(1),
+        description_md: DoctorIpsum::Markdown.entry,
         member: Member.first,
         category: Category.all.sample,
         price: "#{Random.rand(500)}.#{Random.rand(99)}",
@@ -54,7 +55,8 @@ namespace :dev do
     10.times do
       Ad.create!(
         title: Faker::Lorem.sentence([2,3,4,5].sample),
-        description: Faker::Lorem.sentence([2,3].sample),
+        description_short: Faker::Lorem.sentence(1),
+        description_md: DoctorIpsum::Markdown.entry,
         member: Member.all.sample,
         category: Category.all.sample,
         price: "#{Random.rand(500)}.#{Random.rand(99)}",
@@ -63,7 +65,7 @@ namespace :dev do
       )
     end
 
-    puts "ANÚNCIOS cadastrados com sucesso!"
+    puts "ADs successfully created!"
   end
 
 end

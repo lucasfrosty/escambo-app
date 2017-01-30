@@ -40,7 +40,9 @@ class Site::Profile::AdsController < Site::ProfileController
 	private
 
 	def params_ad
-		params.require(:ad).permit(:id, :title, :description, :category_id, :price, :picture, :finish_date)
+		params.require(:ad).permit(:id, :title, :description,
+															:category_id, :price, :picture,
+															:finish_date, :description_short, :description_md)
 	end
 
 	def get_ad

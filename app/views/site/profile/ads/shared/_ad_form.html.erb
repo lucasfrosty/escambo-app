@@ -25,10 +25,19 @@
 	</div>
 
 	<div class="row">
-	  <div class="col-xs-6">
+	  <div class="col-xs-10">
 	  	<div class="form-group">  	
-			  	<%= f.label :description %>
-				  <%= f.text_area :description, class: "form-control", rows: "8" %>
+			  	<%= f.label "Subtitle" %>
+				  <%= f.text_field :description_short, class: "form-control", rows: "15", placeholder: "A brief description of the product" %>
+		  </div>
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-xs-10">
+	  	<div class="form-group">  	
+			  	<%= f.label "Complete Description" %>
+				  <%= f.text_area :description_md, class: "form-control", rows: "15" %>
 		  </div>
 	  </div>
 	</div>

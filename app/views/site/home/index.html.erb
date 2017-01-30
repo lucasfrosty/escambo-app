@@ -44,7 +44,7 @@
                 <h4>
                   <%= link_to truncate(ad.title, length: 20, separator: ' '), site_ad_detail_path(ad.id), remote: true %>
                 </h4>
-                <p><%= ad.description %></p>
+                <p><%= ad.description_short %></p>
               </div>
               <div class="ratings">
                 <p class="pull-right">15 reviews</p>
