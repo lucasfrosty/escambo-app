@@ -8,7 +8,7 @@ class Ad < ApplicationRecord
     :greater_than => 0
   }
 
-  belongs_to :category
+  belongs_to :category, counter_cache: true
   belongs_to :member
 
 

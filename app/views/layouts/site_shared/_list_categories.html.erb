@@ -1,8 +1,0 @@
-<div class="col-md-3">
-	<p class="lead">Categories</p>
-	<div class="list-group">
-		<% @categories.each do |_category| %>
-		<%= link_to _category.description, site_home_path, html_options = {class: "list-group-item"} %>
-		<% end %>
-	</div>
-</div>
