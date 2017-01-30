@@ -37,7 +37,7 @@
 	  <div class="col-xs-10">
 	  	<div class="form-group">  	
 			  	<%= f.label "Complete Description" %>
-				  <%= f.text_area :description_md, class: "form-control", rows: "15" %>
+				  <%= f.text_area :description_md, class: "form-control", rows: "15", data: {provide: "markdown"} %>
 		  </div>
 	  </div>
 	</div>

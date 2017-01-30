@@ -13,16 +13,6 @@ gem 'jquery-ui-rails'
 gem 'paperclip', '~> 5.0.0'
 # Deals with money for us
 gem 'money-rails'
-# Animated CSS
-gem 'rails-assets-animate-css', source: 'https://rails-assets.org'
-# Pry on Console
-gem 'pry-rails', :group => :development
-# Confirm Notification
-gem 'rails-assets-bootbox', source: 'https://rails-assets.org'
-# Bootstrap Notify
-gem 'rails-assets-remarkable-bootstrap-notify', source: 'https://rails-assets.org'
-#Bootstrap gem v3.3.7
-gem 'rails-assets-bootstrap', '3.3.7', source: 'https://rails-assets.org'
 # SB-Admin2 on Rails
 gem 'bootstrap_sb_admin_base_v2'
 # Translator for the devise gem
@@ -61,6 +51,21 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+source 'https://rails-assets.org' do
+  # Markdown preview with JS
+  gem 'rails-assets-marked'
+  # Animated CSSgem 
+  gem 'rails-assets-animate-css'
+  # Confirm Notification
+  gem 'rails-assets-bootbox'
+  # Bootstrap Notify
+  gem 'rails-assets-remarkable-bootstrap-notify'
+  #Bootstrap gem v3.3.7
+  gem 'rails-assets-bootstrap', '3.3.7'
+  # Bootstrap Markdown
+  gem 'rails-assets-bootstrap-markdown'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -83,6 +88,8 @@ group :development do
   gem 'faker'
   # Fake data with Markdown
   gem 'doctor_ipsum'
+  # Pry on Console
+  gem 'pry-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
