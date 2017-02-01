@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord.
+gem 'friendly_id'
 # The safe Markdown parser, reloaded.
 gem 'redcarpet'
 # jQuery UI

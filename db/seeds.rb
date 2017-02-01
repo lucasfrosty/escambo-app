@@ -19,7 +19,7 @@ categories = ["Animais e acessórios",
 
 	categories.each do |f|
 		puts "Categoria \"#{f}\" criada!"
-		Category.find_or_create_by!(description: f)
+		Category.friendly.find_or_create_by!(description: f)
 	end
 	puts 
 	puts "CATEGORIES successfully created!"

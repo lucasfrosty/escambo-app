@@ -34,7 +34,7 @@ class Backoffice::CategoriesController < BackofficeController
 
   private
   def get_category
-    @category = Category.find(params[:id])
+    @category = Category.friendly.find(params[:id])
   end
 
   def params_category
