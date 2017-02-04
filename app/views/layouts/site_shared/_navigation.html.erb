@@ -1,35 +1,48 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <%= link_to "Escambo App", root_path, class: "navbar-brand" %>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">                 
-                <li><%= link_to "Admin Dashboard", admin_path %></li>
-            </ul>
-            
-            <ul class="nav navbar-nav pull-right">
-                <% if member_signed_in? %>
-                    <li><%= link_to current_member.email, "#" %></li> 
-                    <li><%= link_to "Profile", site_profile_dashboard_index_path  %></li> 
-                    <li> <%= link_to "Logout", destroy_member_session_path, method: "delete" %></li>
-                <% else %>
-                    <li> <%= link_to "Sign Up", new_member_registration_path %></li>
-                    <li> <%= link_to "Login", new_member_session_path %></li>
-                <% end %>
-            </ul>
-            
-            
-        </div>
-        <!-- /.navbar-collapse -->
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Escambo App", root_path, class: "navbar-brand" %>
     </div>
-    <!-- /.container -->
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">                 
+        <li><%= link_to "Admin Dashboard", admin_path %></li>
+      </ul>
+      <%= form_tag(site_search_path, method: :get) do %>
+        <ul class="nav navbar-nav">
+          <li style="width: 300px; padding-top: 8px"> 
+            <div class="input-group"> 
+            <%= text_field_tag(:q, params[:q] , {class: "form-control", placeholder: "Search for..."}) %>
+            <span class="input-group-btn"> 
+              <%= submit_tag("Do It!", class: "btn btn-default") %>
+            </span>
+            </div>
+          </li>
+        </ul>
+      <% end %>
+          
+
+      <ul class="nav navbar-nav pull-right">
+        <% if member_signed_in? %>
+        <li><%= link_to current_member.email, "#" %></li> 
+        <li><%= link_to "Profile", site_profile_dashboard_index_path  %></li> 
+        <li> <%= link_to "Logout", destroy_member_session_path, method: "delete" %></li>
+        <% else %>
+        <li> <%= link_to "Sign Up", new_member_registration_path %></li>
+        <li> <%= link_to "Login", new_member_session_path %></li>
+        <% end %>
+      </ul>
+
+
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
 </nav>

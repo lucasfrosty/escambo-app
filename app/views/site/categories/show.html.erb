@@ -1,14 +1,10 @@
-<%= render partial: "site/shared/list_categories" %>
-<div id="home-detail" class="col-md-9">
-	<div class="panel panel-default">
+<div class="panel panel-default">
 		<div class="panel-heading">
 			<h1><%= @category.description %></h1></br>
 		</div>
-	</div>
-
-	<div class="row">
-
-		<%= render partial: "site/shared/ad" %>
-	</div>
-
 </div>
+
+<div class="row">
+	<%= render partial: "site/shared/ad" %>
+</div>
+

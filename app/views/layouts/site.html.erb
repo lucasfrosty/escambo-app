@@ -31,13 +31,23 @@
     <%= render partial: "layouts/site_shared/navigation" %>
     <div class="container">
 
-    <div class="row">
-    <%= yield %>
+        <div class="row">
+            <%= render partial: "layouts/site_shared/list_categories" %>
+            <div id="home-detail" class="col-md-9">
+              <% if controller_path == 'site/home' %>
+                <%= render partial: "layouts/site_shared/carousel" %>
+              <% end %>
+
+              <div class="row">
+                <%= yield %>
+              </div>
+            </div>
+        </div>
+        <%= render partial: "layouts/site_shared/footer" %>
     </div>
-    
-    <%= render partial: "layouts/site_shared/footer" %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'site' %>
+
 </body>
 
 </html>

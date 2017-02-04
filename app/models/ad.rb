@@ -21,8 +21,9 @@ class Ad < ApplicationRecord
 
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
 
-  scope :descending_order, ->(quantity = 10) { limit(quantity).order(created_at: :desc) }
+  scope :descending_order, ->(quantity = 10, page = 1) { limit(quantity).order(created_at: :desc).page(page).per(6) }
   scope :finding_member, ->(member) { where(member: member) }
+  scope :search, ->(q, page = 1) { where("title LIKE ?", "%#{q}%").page(page).per(6) }
 
   private
 

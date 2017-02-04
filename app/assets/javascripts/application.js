@@ -20,7 +20,7 @@ $(document).ready(function() {
 		.ajaxStart(function() {
 			$('#global-spin').fadeIn('slow');
 		})
-		.ajaxStop(function()){
+		.ajaxStop(function(){
 			$('#global-spin').fadeOut('slow');
 
 		});
