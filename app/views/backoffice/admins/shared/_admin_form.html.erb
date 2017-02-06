@@ -16,16 +16,16 @@
 		<div class="col-lg-8">
 			<%= form_for([:backoffice, @admin]) do |f| %>
 			<div class="form-group">
-				<label>Nome:</label>
+				<label>Name:</label>
 				<%= f.text_field :name, class:"form-control", placeholder: "John Doe" %><br>
 
 				<label>E-mail:</label>
 				<%= f.text_field :email, class:"form-control", placeholder:"exemplo@escamboapp.com" %><br>
 
-				<label>Senha:</label>
+				<label>Password:</label>
 				<%= f.password_field :password, class:"form-control", placeholder: "•••••••" %><br>
 				
-				<label>Confirmar Senha:</label>
+				<label>Confirm Password:</label>
 				<%= f.password_field :password_confirmation, class:"form-control", placeholder: "•••••••" %><br>
 
 				<% if policy(@admin).edit? %>

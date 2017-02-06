@@ -17,6 +17,7 @@
 !/log/.keep
 !/tmp/.keep
 /public/system
+/public/diagram.pdf
 
 # Ignore Byebug command history file.
 .byebug_history

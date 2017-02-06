@@ -1,4 +1,6 @@
 class Ad < ApplicationRecord
+
+  ADS_PER_PAGE = 6
   # Callbacks
   before_save :markdown_to_html
 
@@ -21,9 +23,9 @@ class Ad < ApplicationRecord
 
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
 
-  scope :descending_order, ->(quantity = 10, page = 1) { limit(quantity).order(created_at: :desc).page(page).per(6) }
+  scope :descending_order, ->(page) { order(created_at: :desc).page(page).per(ADS_PER_PAGE) }
   scope :finding_member, ->(member) { where(member: member) }
-  scope :search, ->(q, page = 1) { where("title LIKE ?", "%#{q}%").page(page).per(6) }
+  scope :search, ->(q, page) { where("title LIKE ?", "%#{q}%").page(page).per(ADS_PER_PAGE) }
 
   private
 
