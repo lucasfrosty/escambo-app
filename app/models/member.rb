@@ -4,5 +4,9 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  # Associations
   has_many :ads
+
+  # Ratyrate GEM
+  ratyrate_rater
 end

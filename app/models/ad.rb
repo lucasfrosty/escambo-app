@@ -1,5 +1,10 @@
 class Ad < ApplicationRecord
+  # Constants
   ADS_PER_PAGE = 6
+
+  # Ratyrate GEM
+  ratyrate_rateable "quality"
+
   # Callbacks
   before_save :markdown_to_html
 
@@ -9,12 +14,13 @@ class Ad < ApplicationRecord
     :greater_than => 0
   }
 
+  # Associations
   belongs_to :category, counter_cache: true
   belongs_to :member
   has_many :comments
 
 
-
+  # Validations
   validates :title, :description_md, :description_short, :picture, :category, :finish_date, presence: true
 
   has_attached_file :picture, 
@@ -23,10 +29,13 @@ class Ad < ApplicationRecord
 
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
 
+  # Scopes
+  scope :paginate_by_category, ->(type, page) { where(category: type).page(page).per(ADS_PER_PAGE) }
   scope :descending_order, ->(page) { order(created_at: :desc).page(page).per(ADS_PER_PAGE) }
   scope :finding_member, ->(member) { where(member: member) }
   scope :search, ->(q, page) { where("title LIKE ?", "%#{q}%").page(page).per(ADS_PER_PAGE) }
 
+  # Functions
   private
 
   def markdown_to_html

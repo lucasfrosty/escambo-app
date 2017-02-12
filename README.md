@@ -9,7 +9,7 @@ member@member.com (for the site)
 
 
 
-## Project Dependencies
+# Project Dependencies
 
 * ImageMagick (https://www.imagemagick.org)
 

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_filter :store_current_location, :unless => :devise_controller?
   
   protect_from_forgery with: :exception
   
@@ -26,5 +27,9 @@ class ApplicationController < ActionController::Base
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
     redirect_to(request.referrer || root_path)
+  end
+
+  def store_current_location
+    store_location_for(:member, request.url)
   end
 end
