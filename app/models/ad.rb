@@ -1,5 +1,4 @@
 class Ad < ApplicationRecord
-
   ADS_PER_PAGE = 6
   # Callbacks
   before_save :markdown_to_html
@@ -12,6 +11,7 @@ class Ad < ApplicationRecord
 
   belongs_to :category, counter_cache: true
   belongs_to :member
+  has_many :comments
 
 
 

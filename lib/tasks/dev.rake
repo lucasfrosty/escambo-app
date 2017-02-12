@@ -1,7 +1,7 @@
 namespace :dev do
   desc "Desenvolve o setup do Escambo App"
   task setup: :environment do
-    puts "Setup iniciado\n\n"
+    puts "Setup initialized\n\n"
     puts %x(rm -rf #{Rails.root.join('public', 'system')})
     puts %x(rails db:drop)
     puts %x(rails db:create)
@@ -9,7 +9,8 @@ namespace :dev do
     puts %x(rails db:seed)
     puts %x(rails dev:generate_members)
     puts %x(rails dev:generate_ads)
-    puts "\n\nSetup executado com sucesso!"
+    puts %x(rails dev:generate_comments)
+    puts "\n\nSetup done"
   end
 
 
@@ -20,7 +21,7 @@ namespace :dev do
 
     puts "Creating members"
 
-    10.times do
+    20.times do
       Member.create!(
         email: Faker::Internet.email,
         password: "123456",
@@ -67,5 +68,26 @@ namespace :dev do
 
     puts "ADs successfully created!"
   end
+
+
+  ##################################################
+  desc "Cria COMENTÁRIOS Fake"
+  task generate_comments: :environment do
+
+    puts "Creating comments"
+    Ad.all.each do |ad|
+      3.times do
+        Comment.create!(
+          body: Faker::Lorem.paragraph([1,2,3].sample),
+          member: Member.all.sample,
+          ad: ad
+        )
+      end
+    end
+
+
+    puts "COMMENTS successfully created!"
+  end
+
 
 end
