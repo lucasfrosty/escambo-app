@@ -10,10 +10,8 @@
     </p>
   </div>
   <div class="ratings">
-    <p class="pull-right"><%= @ad.comments.size %> comments</p>
-    <p>
-      <%= rating_for @ad, 'quality' %>
-    </p>
+    <p class="pull-right"><%= @ad.rates("quality").count %> Review(s)</p>
+    <p><%= rating_for @ad, 'quality' %></p>
   </div>
 </div>
 

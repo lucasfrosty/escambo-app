@@ -5,11 +5,13 @@
             <%= link_to "Dashboard", site_profile_dashboard_index_path %>
         </li>
         <li>
-            
+            <%= link_to "Profile", edit_site_profile_datum_path(current_member.id) %>
         </li>
+
         <li>
             <%= link_to "My Ads", site_profile_ads_path %>
         </li>
+
     </ul>
 </div>
     <!-- /#sidebar-wrapper -->

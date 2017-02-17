@@ -10,10 +10,9 @@
         <p><%= ad.description_short %></p>
       </div>
       <div class="ratings">
-        <p>
-          <%= rating_for ad, 'quality', disable_after_rate: false %>
-        </p>
-      </div>
+        <p class="pull-right"><%= ad.rates('quality').count %> Review(s)</p>
+        <p><%= rating_for ad, 'quality' %></p>
+      </div> 
     </div>
   </div>
 <% end %>

@@ -1,0 +1,49 @@
+<% content_for :javascripts do %>
+	<%= javascript_include_tag 'site/profile/ads' %>
+<% end  %>
+<h1>Editing Profile</h1>
+
+<% if @profile_member.errors.any? %>
+<div class="alert alert-danger alert-dismissable">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+	<ul>
+		<% @profile_member.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+
+<%= form_for @profile_member, url: site_profile_datum_path(@profile_member) do |f| %>
+  <div class="row">
+	  <div class="col-xs-3">
+	  	<div class="form-group">  
+		    <%= f.label :first_name %>
+		    <%= f.text_field :first_name, class: "form-control", placeholder: "John" %>
+	    </div>
+	  </div>	
+	</div>
+
+	<div class="row">
+	  <div class="col-xs-3">
+	  	<div class="form-group">  	
+			  	<%= f.label :second_name %>
+				  <%= f.text_field :second_name, class: "form-control", placeholder: "Doe" %>
+		  </div>
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-xs-3">
+	  	<div class="form-group">  
+		    <%= f.label :birthdate %>
+		    <div class="input-group">
+		    <%= f.text_field :birthdate, class: "form-control datepicker", placeholder: "2017-01-01" %>
+		    </div>
+	    </div>
+	  </div>	
+	</div>
+
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

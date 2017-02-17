@@ -6,6 +6,7 @@ class Member < ApplicationRecord
 
   # Associations
   has_many :ads
+  has_one :profile_member
 
   # Ratyrate GEM
   ratyrate_rater
